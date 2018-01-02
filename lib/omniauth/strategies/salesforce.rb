@@ -85,6 +85,10 @@ module OmniAuth
 
     class SalesforceSandbox < OmniAuth::Strategies::Salesforce
       default_options[:client_options][:site] = 'https://test.salesforce.com'
+
+      def callback_path
+        options[:callback_path] || (super)
+      end
     end
 
     class DatabaseDotCom < OmniAuth::Strategies::Salesforce
